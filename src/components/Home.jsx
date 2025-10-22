@@ -23,9 +23,8 @@ const Home = () => {
         */
 
       />
-
       <section 
-        className='relative flex justify-center min-h-screen pt-12 lg:pt-64 px-8'
+        className='relative justify-center min-h-screen pt-12 lg:pt-36 px-8'
 
         /* <section> sits above the image
 
@@ -63,8 +62,12 @@ const Home = () => {
             home-name           : Extra large font size from your CSS.
         */
         >
-            Hello! I'm Webcube.
+          Hi, I’m Ishan — a full-stack Django + React developer. <br />
+          I build clean, reliable apps that balance accounting accuracy and great UX.
         </h1>
+        <h2 className='mt-6 text-amber-100 leading-none lg:leading-snug bg-blue-400'
+            >“I help small businesses automate accounting workflows and dashboards.”
+        </h2>
       </section>
     </main>
   )
