@@ -4,7 +4,7 @@ import { SocialIcon } from 'react-social-icons' // Ready-to-use social media ico
 
 const NavBar = () => {
   return (
-    <header className='bg-red-600'>
+    <header className='bg-blue-500'>
       <div className='container mx-auto flex justify-between'>
 
         {/* Tailwind CSS Classes:
@@ -15,7 +15,7 @@ const NavBar = () => {
 
                 inline-flex, items-center, py-3, px-3: for layout and spacing
 
-                text-red-200, hover:text-green-800: for text styling and hover effects
+                text-blue-200, hover:text-green-800: for text styling and hover effects
 
                 .cursive: uses custom font from App.css 
         */}
@@ -24,42 +24,41 @@ const NavBar = () => {
           {/* Create links to various routes */}
           <NavLink to="/" 
              className={({ isActive }) =>
-            `inflex-flex items-center py-6 px-3 mr-4 text-red-100 hover:text-green-800 text-4xl font-bold cursive tracking-widest 
+            `inflex-flex items-center py-6 px-3 mr-4 text-amber-200 hover:text-blue-700 text-4xl font-bold cursive tracking-widest 
             ${ isActive ? "text-white" : "" }` /* Styling if link is active */
           }>
-            WEBCUBE
+            ISHAN
           </NavLink>
           <NavLink to="/post" 
-            className={({ isActive }) => `inline-flex items-center py-3 px-3 my-6 rounded text-red-200 hover:text-green-800 
-            ${ isActive ? "text-red-100 bg-red-700" : "" }`
+            className={({ isActive }) => `inline-flex items-center py-3 px-3 my-6 mx-3  rounded text-amber-200 border-amber-200 border-2
+            ${ isActive ? "text-blue-700 border-blue-700 border-2 hover:text-amber-200 hover:border-amber-200" : "" }`
           }>
-            Blog Posts
+            Featured Projects
           </NavLink>
           <NavLink to="/project" 
-            className={({ isActive }) => `inline-flex items-center py-3 px-3 my-6 rounded text-red-200 hover:text-green-800 
-            ${ isActive ? "text-red-100 bg-red-700" : "" }`
+            className={({ isActive }) => `inline-flex items-center py-3 px-3 my-6 mx-3 rounded text-amber-200 border-amber-200 border-2
+            ${ isActive ? "text-blue-700 border-blue-700 border-2 hover:text-amber-200 hover:border-amber-200" : "" }`
           }>
-            Projects
+            Video Demos
           </NavLink>
-          <NavLink to="/about" 
-            className={({ isActive }) => `inline-flex items-center py-3 px-3 my-6 rounded text-red-200 hover:text-green-800 
-            ${ isActive ? "text-red-100 bg-red-700" : "" }`
+          <NavLink to="/services" 
+            className={({ isActive }) => `inline-flex items-center py-3 px-3 my-6 mx-3 rounded text-amber-200 border-amber-200 border-2
+            ${ isActive ? "text-blue-700 border-blue-700 border-2 hover:text-amber-200 hover:border-amber-200" : "" }`
           }>
-            About Me!
+            Services
+          </NavLink>
+          <NavLink to="/contact" 
+            className={({ isActive }) => `inline-flex items-center py-3 px-3 my-6 mx-3 rounded text-amber-200 border-amber-200 border-2
+            ${ isActive ? "text-blue-700 border-blue-700 border-2 hover:text-amber-200 hover:border-amber-200" : "" }`
+          }>
+            Contact Me
           </NavLink>
         </nav>
         {/* Social Media Icons */}
         <div 
-          className='inline-flex py-3 px-3 my-6' // Align the icons with padding and margin
+          className='inline-flex py-3 my-6' // Align the icons with padding and margin
         >
-          <SocialIcon 
-            url='https://x.com'       // Auto-detects the platform based on the url   
-            className='mr-4'          // Adds right margin using TailwindCSS (mr-4) to space out the icons
-            target='_blank'           // Opens the link in a new browser tab
-            fgColor='#fff'            // Sets the foreground color (icon color) to white
-            style={{ height: 35, width: 35 }} // Explicitly sets the size of each icon
-          />
-          <SocialIcon url='https://youtube.com' className='mr-4' target='_blank' fgColor='#fff' style={{ height: 35, width: 35 }} />
+          <SocialIcon url='https://github.com/webQbe' className='mr-4' target='_blank' fgColor='#fff' style={{ height: 35, width: 35 }} />
           <SocialIcon url='https://linkedin.com' className='mr-4' target='_blank' fgColor='#fff' style={{ height: 35, width: 35 }} />
         </div> 
       </div>
