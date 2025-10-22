@@ -1,0 +1,21 @@
+ /* Import TailwindCSS Classes */
+@import "tailwindcss";
+
+/* Font style for home page link on Navbar */
+.cursive { 
+    /* Use Amatic font for elements with cursive class. */
+    font-family: "Amatic SC", cursive;
+    font-weight: 700;
+}
+
+.home-name {
+    /* For large greeting headline on home page */
+    font-size: 150px;
+}
+
+.prose img {
+    /* Center & round image corners inside any .prose container. */
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5px;
+}
