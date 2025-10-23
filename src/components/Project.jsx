@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import sanityClient from '../client'
+import { PortableText } from '@portabletext/react'
+import { myPortableTextComponents } from './BlockContent'
 
 const Project = () => {
 
@@ -10,15 +12,13 @@ const Project = () => {
   useEffect(() => { // Fetch all documents of type project from Sanity when this component mounts
     
     /* Sanity Query */
-    // Fetch fields like title, date, place, description, projectType, link, and tags
+    // Fetch fields 
     sanityClient.fetch(`*[_type == "project"]{
           title,
-          date,
-          place,
           description,
-          projectType,
-          link,
-          tags
+          techStacks,
+          demoLink,
+          gitHubLink
       }`)
       .then((data) => setProjectData(data))
       .catch(console.error)
@@ -73,7 +73,7 @@ const Project = () => {
                     */}
                   
                     <a
-                      href={ project.link || '#'} // // Fallback to "#" in case link is missing
+                      href={ project.demoLink || '#'} // // Fallback to "#" in case link is missing
                       alt={ project.title || 'Untitled Project' } // Fallback to "Untitled Project" in case title is missing
                       target='_blank'
                       rel='noopener noreferrer'
@@ -90,77 +90,65 @@ const Project = () => {
                           then sm:text-sm, 
                           then md:text-base. */}
 
-                    {/* Finished Date */}
-                    { project.date && (
-                      <p>
-                        <strong className='font-bold'>Finished on:</strong>{' '}
-                        {/* Formatted Date */}
-                        {new Date(project.date).toLocaleDateString('en-US', {
-                          year: 'numeric',
-                          month: 'long',
-                          day: 'numeric',
-                        })}
-                      </p>
-                    )}
-
-                    {/* Company / Place */}
-                    { project.place && (
-                      <p>
-                        <strong className='font-bold'>Company:</strong>{' '}
-                        { project.place }
-                      </p>
-                    )}
-
                     {/* Project Type */}
-                    { project.projectType && (
+                    { project.techStacks && (
                       <p>
-                        <strong className='font-bold'>Type:</strong>{' '}
-                        { project.projectType }
+                        <strong className='font-bold'>Tech Stack:</strong>{' '}
+                        <span className='inline-flex flex-wrap gap-2 ml-2'>
+                          {project.techStacks.map((t, i) => (
+                            <span
+                              key={i}
+                              className='bg-green-200 text-green-800 px-2 py-1 rounded-full text-sm'
+                            >
+                              {t}
+                            </span>
+                          ))}
+                        </span>
                       </p>
                     )}
 
                     {/* Description */}
                     { project.description && (
-                      <p className='my-4 sm:my-6 md:my-8 text-sm sm:text-base md:text-lg leading-relaxed'>
-                        
-                        { project.description }
-
-                        {/* Responsive Text Sizes & Spacing in Description paragraph:
-                        
-                              Paragraph:
-                                text-sm (mobile) to sm:text-base to md:text-lg;  
-
-                              Margins/Padding: 
-                                my-4 (mobile) to sm:my-6 to md:my-8
-                        */}
-                      </p>
-                    )}
+                      <div className='my-4 sm:my-6 md:my-8 text-sm sm:text-base md:text-lg leading-relaxed'>
+                        <PortableText
+                          value={project.description}
+                          components={myPortableTextComponents}
+                        />
+                      </div>
+                    ) 
+                  }
 
                     {/* Link to the project (with an emoji pointer) */}
-                    { project.link && (
+                    { project.demoLink && (
                       <a
-                        href={ project.link }
+                        href={ project.demoLink }
                         rel='noopener noreferrer'
                         target='_blank'
                         className='text-red-500 font-bold hover:underline 
-                                  hover:text-red-400 text-sm sm:text-base'
+                                  hover:text-red-400 text-sm sm:text-base px-2'
                       >
-                        View The Project{' '}
+                        View Demo{' '}
                         <span role='img' aria-label='right pointer'>
                           👉
                         </span>
                       </a>
                     )}
 
-                    {/* Render Tags */}
-                    <div className="mt-4">
-                      { project.tags?.map((tag, i) => (
-                        <span key={i} className="inline-block bg-green-200 text-green-800 px-2 py-1 rounded-full text-sm mr-2">
-                          #{ tag }
+                    {/* Link to the github repo (with an emoji pointer) */}
+                    { project.gitHubLink && (
+                      <a
+                        href={ project.gitHubLink }
+                        rel='noopener noreferrer'
+                        target='_blank'
+                        className='text-red-500 font-bold hover:underline 
+                                  hover:text-red-400 text-sm sm:text-base px-2'
+                      >
+                        Github repo{' '}
+                        <span role='img' aria-label='right pointer'>
+                          👉
                         </span>
-                      ))}
-
-                    </div>
+                      </a>
+                    )}
                   </div>
                 </article>
               ))

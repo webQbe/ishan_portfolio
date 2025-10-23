@@ -11,45 +11,28 @@ export default defineType({
       type: 'string',
     }),
     defineField({
-      name: 'date',
-      title: 'Date',
-      type: 'datetime',
-    }),
-    defineField({
-      name: 'place',
-      title: 'Place',
-      type: 'string',
-    }),
-    defineField({
       name: 'description',
       title: 'Description',
-      type: 'text',
+      type: 'blockContent',
     }),
     defineField({
-      name: 'projectType',
-      title: 'Project Type',
-      type: 'string',
-      options: {
-        list: [
-          { value: 'personal', title: 'Personal' },
-          { value: 'client', title: 'Client' },
-          { value: 'school', title: 'School' },
-        ],
-      },
-    }),
-    defineField({
-      name: 'link',
-      title: 'Link',
-      type: 'url',
-    }),
-    defineField({
-      name: 'tags',
-      title: 'Tags',
+      name: 'techStacks',
+      title: 'Tech stack badges',
       type: 'array',
       of: [{ type: 'string' }],
       options: {
         layout: 'tags',
       },
+    }),
+  defineField({
+      name: 'demoLink',
+      title: 'Demo link',
+      type: 'url',
+    }),
+  defineField({
+      name: 'gitHubLink',
+      title: 'GitHub link',
+      type: 'url',
     }),
   ],
 })
