@@ -29,13 +29,13 @@ const NavBar = () => {
           }>
             ISHAN
           </NavLink>
-          <NavLink to="/post" 
+          <NavLink to="/project" 
             className={({ isActive }) => `inline-flex items-center py-3 px-3 my-6 mx-3  rounded text-amber-200 border-amber-200 border-2
             ${ isActive ? "text-blue-700 border-blue-700 border-2 hover:text-amber-200 hover:border-amber-200" : "" }`
           }>
             Featured Projects
           </NavLink>
-          <NavLink to="/project" 
+          <NavLink to="/demo" 
             className={({ isActive }) => `inline-flex items-center py-3 px-3 my-6 mx-3 rounded text-amber-200 border-amber-200 border-2
             ${ isActive ? "text-blue-700 border-blue-700 border-2 hover:text-amber-200 hover:border-amber-200" : "" }`
           }>
