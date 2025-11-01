@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom' // Import routin
 import Home from './components/Home'
 import About from './components/About'
 import SinglePost from './components/SinglePost'
-import Post from './components/Post'
+import Demo from './components/Demo'
 import Project from './components/Project'
 import NavBar from './components/NavBar'
 
@@ -18,7 +18,7 @@ function App() {
         <Route element={ <Home /> } path='/' />
         <Route element={ <About /> } path='/about'/>
         <Route element={ <SinglePost /> } path='/post/:slug'/>
-        <Route element={ <Post /> } path='/post'/>
+        <Route element={ <Demo /> } path='/demo'/>
         <Route element={ <Project /> } path='/project'/>
       </Routes>
     </BrowserRouter>
